@@ -27,7 +27,6 @@ log.setLevel(logging.ERROR)
 @application.before_request 
 def before_request():
     g.user= None
-
     if 'user' in session:
         g.user = session['user']
 
@@ -37,22 +36,24 @@ def index():
 
 @application.route("/login", methods=['GET','POST'])                 
 def login():
-        user=0
-        if request.method == 'POST':
-            email=request.form['email']
-            password=request.form['password']
-            query="SELECT user_id,user_name FROM USER WHERE user_email='%s' AND user_password='%s'"%(email,password)
-            detail=selection(query)
-            if detail!=False:
-                for d in detail:
-                    session['user']=[d[0],d[1]]
-                    return redirect('/user_notifications')  
-            return render_template('login.html',id='404',msg="INVALID CREDENTIALS")
-        try:
-            user=request.args.get('user')
-        except Exception as e:
-            print(e)
-        return render_template('login.html',user=user)
+    if g.user:
+        return redirect('/user_home') 
+    user=0
+    if request.method == 'POST':
+        email=request.form['email']
+        password=request.form['password']
+        query="SELECT user_id,user_name FROM USER WHERE user_email='%s' AND user_password='%s'"%(email,password)
+        detail=selection(query)
+        if detail!=False:
+            for d in detail:
+                session['user']=[d[0],d[1]]
+                return redirect('/user_home')  
+        return render_template('login.html',id='404',msg="INVALID CREDENTIALS")
+    try:
+        user=request.args.get('user')
+    except Exception as e:
+        print(e)
+    return render_template('login.html',user=user)
 
 @application.route("/sign_up", methods=['GET','POST'])                 
 def signup():
