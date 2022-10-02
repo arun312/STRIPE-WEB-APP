@@ -26,14 +26,8 @@ log.setLevel(logging.ERROR)
 
 @application.before_request 
 def before_request():
-    g.admin = None
-    g.agent= None
     g.user= None
 
-    if 'admin' in session:
-        g.admin = session['admin']
-    if 'agent' in session:
-        g.agent = session['agent']
     if 'user' in session:
         g.user = session['user']
 
@@ -47,31 +41,12 @@ def login():
         if request.method == 'POST':
             email=request.form['email']
             password=request.form['password']
-            if request.form['membershipRadios']=='User':
-                query="SELECT user_id,user_name FROM USER WHERE user_email='%s' AND user_password='%s'"%(email,password)
-                detail=selection(query)
-                if detail!=False:
-                    for d in detail:
-                        session['user']=[d[0],d[1]]
-                        return redirect('/user_notifications')
-            elif request.form['membershipRadios']=='Agent':
-                query="SELECT agent_id,agent_name,verification FROM AGENT WHERE agent_email='%s' AND agent_password='%s'"%(email,password)
-                detail=selection(query)
-                if detail!=False:
-                    for d in detail:
-                        if d[2]==0:
-                            return render_template('login.html',id='300',msg="Your Application is pending for Verification.")
-                        elif d[2]==2:
-                            return render_template('login.html',id='300',msg="Your Application is rejected.")
-
-                        session['agent']=[d[0],d[1]]
-                        return redirect('/agent_index')
-            elif request.form['membershipRadios']=='Admin':
-                if email=='admin@gmail.com':
-                    if password=='admin123':
-                        session['admin'] = "approved"
-                        print('done')
-                        return redirect('/admin_home')    
+            query="SELECT user_id,user_name FROM USER WHERE user_email='%s' AND user_password='%s'"%(email,password)
+            detail=selection(query)
+            if detail!=False:
+                for d in detail:
+                    session['user']=[d[0],d[1]]
+                    return redirect('/user_notifications')  
             return render_template('login.html',id='404',msg="INVALID CREDENTIALS")
         try:
             user=request.args.get('user')
@@ -819,33 +794,6 @@ def selection(query):  #Selection Queries
         return False
 
 ####################### DATABASE END###################################
-def getcoordinates(text):
-    api_key = 'ge-409885d2f6333f95'
-    query = "https://api.geocode.earth/v1/search?" \
-            "api_key="+api_key+"&"\
-            "text="+text.replace(' ', '+')
-
-    response = json.load(urllib.request.urlopen(query))
-    return response['features'][0]['geometry']['coordinates']
-
-def distancecalculator(x,y):
-    # approximate radius of earth in km
-    R = 6373.0
-
-    lat1 = radians(float(x[0]))
-    lon1 = radians(float(x[1]))
-    lat2 = radians(y[0])
-    lon2 = radians(y[1])
-
-    dlon = lon2 - lon1
-    dlat = lat2 - lat1
-
-    a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
-    c = 2 * atan2(sqrt(a), sqrt(1 - a))
-
-    distance = R * c
-
-    return(distance)
 
 if __name__ == "__main__":
     application.debug = True
