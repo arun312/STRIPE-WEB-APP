@@ -11,6 +11,10 @@ import json
 import urllib.request
 from math import sin, cos, sqrt, atan2, radians
 
+import stripe
+# This is your test secret API key.
+stripe.api_key = 'sk_test_51LoYstSCQP9tLIEHALBPJAWNm4usoTNFQSAoujlYHyNQG4CnJ1RZsw8VLs0bhlShtaDn3ZSXzNzGULW255MUfLme00IVHSECqH'
+
 
 app = Flask(__name__,
             static_url_path='', 
@@ -22,6 +26,14 @@ app.config["upload_folder2"] = 'web/static/'
 app.config['SECRET_KEY']='mysecret'
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
+
+
+# This is your test secret API key.
+# stripe.api_key = 'sk_test_51LoYstSCQP9tLIEHALBPJAWNm4usoTNFQSAoujlYHyNQG4CnJ1RZsw8VLs0bhlShtaDn3ZSXzNzGULW255MUfLme00IVHSECqH'
+
+app = Flask(__name__,
+            static_url_path='',
+            static_folder='public')
 
 
 @app.before_request 
