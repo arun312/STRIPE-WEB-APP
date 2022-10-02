@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Notifications</title>
+  <title>Home</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -25,7 +25,12 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/card.css" rel="stylesheet">
+  <link href="assets/css/switch.css" rel="stylesheet">
+
+
   <link rel="stylesheet" href="css/notification.css">
   <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
@@ -44,7 +49,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div id="logo">
-        <h1><a href="index.html"><span>A</span>ccomodationFinder</a></h1>
+        <h1><a href="index.html"><span>R</span>ichpanelFlix</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
       </div>
@@ -52,8 +57,6 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto " href="/">Home</a></li>
-          <li><a class="nav-link scrollto" href="/user_notifications">Notification</a></li>
-          <li><a class="nav-link scrollto" href="/user_profile">Profile</a></li>
           <li><a class="nav-link scrollto" href="/logout">logout</a></li>
 
 
@@ -70,10 +73,9 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Notification</h2>
+          <h2>Number of Active Plans : 0</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Notification</li>
+            <li><a href="/user_cancel">Cancel All plans</a></li>
           </ol>
         </div>
       </div>
@@ -83,46 +85,55 @@
         <div class="container">
             <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
             <div class="container mb-4">
-                <div class="row">
-                    <!-- Wishlist-->
-                    
-                    <!-- <div class="col-lg-5  "> -->
-                        <!-- Item-->
-                        <br>
-                        {% for x in item %}
-                      {% if x.status =='Accepted' %}
-                      <div class="mt-4 card w-75 text-white bg-success ">
-                        <div class="card-header">{{x.acco_name}}</div>
-                        <div class="card-body">
-                          <h5 class="card-title" style="color: #fff;">Price : Rs.{{x.acco_price}}</h5>
-                            <span>Status: <span class="font-weight-medium">{{x.status}}</span></span>
-                            <br>
-                            <div class="mt-4">
-                            {% if x.payment =='0' %}
-                              <a href="/payment?req_id={{x.req_id}}"><button type="button" class="btn btn-link">Pay</button></a>
-                            {% else %}
-                            <button type="button" class="btn btn-link">Paid</button>
-                            {% endif %}
-                            <a href="#" class="btn btn-primary btn-sm" onclick="nalert('{{x.agent_name}}','{{x.agent_email}}','{{x.agent_ph}}')">Contact</a>
-                            </div>
-                          </div>
+               
+              <div class="demo">
+                <div class="container">
+                    <div class="row text-center">
+                        <h1 class="heading-title">Choose the right plan for you</h1>
+                    </div>
+                    <div class="row text-center">
+
+                    <div class="switch-field">
+                      <input type="radio" id="radio-one" name="switch-one" value="yes" checked/>
+                      <label for="radio-one">Yearly</label>
+                      <input type="radio" id="radio-two" name="switch-one" value="no" />
+                      <label for="radio-two">Monthly</label>
+                    </div>
                         </div>
-                      {% else %}
-                      <div class="mt-4 card w-75">
-                        <div class="card-header">{{x.acco_name}}</div>
-
-                      <div class="card-body">
-                        <p class="card-text">Price : Rs.{{x.acco_price}}</p>
-                        <span>Status: <span class="text-success font-weight-medium">{{x.status}}</span></span>
                         <br>
-                      </div>
-                    </div>
-                    {% endif %}
 
-                    {% endfor %}
+                    <div class="row">
+                      {% for x in item %}
+                        <div class="col-md-3 col-sm-4">
+                            <div class="pricingTable">
+                                <div class="pricingTable-header">
+                                    <span class="heading">
+                                        {{x.name}}
+                                    </span>
+                                </div>
+                                <div class="pricingContent">
+                                    <ul>
+                                        <li><b>{{x.a}} INR</b> Monthly Price</li>
+                                        <li><b>{{x.b}} INR</b>Yearly Price</li>
+                                        <li><b>{{x.c}}</b> Video quality</li>
+                                        <li><b>{{x.d}}p</b>  Resolution</li>
+                                        <li>Devices you can use to watch<br><b>{{x.e}}</b></li>
+                                        <li> Number of active screens at one time<br><b>{{x.f}}</b></li>
+                                  
+                                      </ul>
+                                </div><!-- /  CONTENT BOX-->
+        
+                                <div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+                                    <a href="#" class="btn btn-block btn-default">buy now</a>
+                                </div><!-- BUTTON BOX-->
+                            </div>
+                        </div>
+                        {% endfor %}
 
-                        
                     </div>
+                </div>
+            </div>
+
                 </div>
             </div>
         </div>
@@ -137,7 +148,7 @@
         <div class="col-md-12 col-lg-4">
           <div class="footer-logo">
 
-            <a class="navbar-brand" href="#">AccomodationFinder</a>
+            <a class="navbar-brand" href="#">Richpanel</a>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p>
 
           </div>
@@ -208,7 +219,7 @@
 
     <div class="copyrights">
       <div class="container">
-        <p>&copy; Copyrights eStartup. All rights reserved.</p>
+        <p>&copy; Copyrights Richpanel. All rights reserved.</p>
         <div class="credits">
           <!--
           All the links in the footer should remain intact.
@@ -216,7 +227,7 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eStartup
         -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          Designed by <a href="https://bootstrapmade.com/">RP</a>
         </div>
       </div>
     </div>

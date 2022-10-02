@@ -32,6 +32,31 @@ def before_request():
 
 @app.route("/")
 def index():
+    return render_template('index.html')
+
+@app.route("/user_home")
+def user_home():
+    if g.user:
+        query="SELECT * FROM PLAN"
+        detail=selection(query)
+        item=[]
+        if detail!=False:
+            for d in detail:
+                x={
+                    'name':d[0],
+                    'a':d[1],
+                    'b':d[2],
+                    'c':d[3],
+                    'd':d[4],
+                    'e':d[5],
+                    'f':d[6],
+                }
+                item.append(x)
+        return render_template('user_home.html',item=item)
+    return redirect('/login')
+
+@app.route("/login", methods=['GET','POST'])
+def login():
     if g.user:
         return redirect('/user_home') 
     user=0
@@ -47,9 +72,34 @@ def index():
         return render_template('login.html',id='404',msg="INVALID CREDENTIALS")
     try:
         user=request.args.get('user')
+
     except Exception as e:
         print(e)
     return render_template('login.html',user=user)
+
+@app.route("/sign_up", methods=['GET','POST'])                 
+def signup():
+    if request.method=='POST':
+        query="SELECT Count(*) FROM 'USER' WHERE `user_email`='%s'"%(request.form['email'])
+        detail=selection(query)
+        if detail!=False:
+            for d in detail:
+                if d[0]>0:
+                    return render_template('register.html',id='500')
+                else:
+                    query="INSERT INTO 'USER'(user_name,user_email,user_password) values('%s','%s','%s')"%(request.form['name'],request.form['email'],request.form['password'])
+                    detail=inUP(query)
+                    if detail!=False:
+                        return render_template('register.html',id='200')
+        return render_template('register.html',id='404')
+                    
+    return render_template('register.html')
+
+@app.route("/logout",methods=['GET','POST'])                 #new
+def admin_logout():
+    session['user'] = None
+    return redirect('/')  
+
 ###################### DATABASE ###################################
 
 def inUP(query): #Insertion or Updation Queries
