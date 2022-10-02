@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment</title>
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>AccomodationFinder</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- owl carousel style -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets --> 
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+  </head>
+  <body>
+    <div class="container bg-light d-md-flex justify-content-center">
+      <div class="card box1 shadow-sm p-md-5 p-md-5 p-4">
+        <div class="fw-bolder mb-4">
+        </div>
+        <div class="d-flex flex-column">
+          <div class="d-flex align-items-center justify-content-between text">
+
+          </div>
+          <div
+            class="d-flex align-items-center justify-content-between text mb-4"
+          >
+            <span>Total</span>
+            <span class="fas fa-rupee-sign"
+              ><span class="ps-1">xx</span></span
+            >
+          </div>
+          <div class="border-bottom mb-4"></div>
+          <div class="d-flex flex-column mb-4">
+            <span class="far fa-file-alt text"
+              ><span class="ps-2">Invoice ID:</span></span
+            >
+            <span class="ps-3">SN8478042099</span>
+          </div>
+
+          <div
+            class="d-flex align-items-center justify-content-between text mt-5"
+          >
+            <div class="d-flex flex-column text">
+              <span>Customer Support:</span> <span>online chat 24/7</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card box2 shadow-sm">
+        <div
+          class="d-flex align-items-center justify-content-between p-md-5 p-4"
+        >
+          <span class="h5 fw-bold m-0">Payment methods</span>
+          <div class="btn btn-primary bar">
+          </div>
+        </div>
+        <ul class="nav nav-tabs mb-3 px-md-4 px-2">
+          <li class="nav-item">
+            <a class="nav-link px-2 active" aria-current="page" href="#"
+              >Credit Card</a
+            >
+          </li>
+
+        </ul>
+        <div class="px-md-5 px-4 mb-4 d-flex align-items-center">
+
+        </div>
+        <form action="" method="post">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex flex-column px-md-5 px-4 mb-4">
+                <div class="form-group">
+
+                <span>Credit Card</span>
+                <div class="inputWithIcon">
+                  <input
+                    class="form-control"
+                    minlength="12"
+                    maxlength="12"
+                    pattern="[\d ]{10,30}"
+                    dir="ltr" type="text"
+                    placeholder="xxxx xxxx xxxx"
+                    name="card_num"
+                    id="ccnum"
+                    required
+                  />
+                  <span class="">
+                    <img
+                      src="https://www.freepnglogos.com/uploads/mastercard-png/mastercard-logo-logok-15.png"
+                      alt=""
+                  /></span>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex flex-column ps-md-5 px-md-0 px-4 mb-4" style="margin-left: 1em;">
+                <span>Expiration<span class="ps-1">Date</span></span>
+                <div class="inputWithIcon">
+                  <input type="text" class="form-control" placeholder="mm/yy" size="7" type="text" id="expiry"  pattern="(?:0[1-9]|1[0-2])/[0-9]{2}"  name="card_date" required/>
+                  <span class="fas fa-calendar-alt"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex flex-column pe-md-5 px-md-0 px-4 mb-4" style="margin-right: 1em;">
+                <span>Code CVV</span>
+                <div class="inputWithIcon">
+                  <input type="password" class="form-control" placeholder="xxx"  minlength="3" maxlength="3" type="text" id="cvc" name="card_cvv" required/>
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="d-flex flex-column px-md-5 px-4 mb-4">
+                <span>Name</span>
+                <div class="inputWithIcon">
+                  <input
+                    class="form-control text-uppercase"
+                    type="text"
+                    placeholder="Name"
+                    required
+                    name="name"
+                  />
+                  <span class="far fa-user"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 px-md-5 px-4 mt-3">
+            <button type="submit" class="btn btn-primary w-100">
+                Pay
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    if('{{sucess}}'=='0'){
+      Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+  }).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = "/user_notifications";
+    }})   
+} 
+
+if('{{sucess}}'=='1'){
+  Swal.fire(
+    'Thank You!',
+    'Payment Completed Sucessfully',
+    'success'
+    
+  ).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = "/user_notifications";
+    }})
+  } 
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/payform.js"></script>
+
+</html>

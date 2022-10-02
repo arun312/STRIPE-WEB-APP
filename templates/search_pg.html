@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Paying Guest</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/filter.css">
+  <link rel="stylesheet" href="css/pgrid.css">
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+
+  <!-- =======================================================
+  * Template Name: AccomodationFinder - v4.7.1
+  * Template URL: https://bootstrapmade.com/AccomodationFinder-bootstrap-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div id="logo">
+        <!-- <h1><a href="index.html"><span>A</span>ccomodtionFinder</a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="/"><img width="100" src="images/logo.png" alt="" title="" /></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/user_notifications">Notification</a></li>
+          <li><a class="nav-link scrollto" href="/user_profile">Profile</a></li>
+          <li><a class="nav-link scrollto" href="/logout">logout</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Paying Guest</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Paying Guest</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="category">
+      <div class="row">
+        <div class="col-2">
+          <section class="inner-page pt-4" id="filters">
+            <div class="container-fluid">         
+              <div class="row" id="fs_app">                 
+                  <section class="col-12" id="fs_header_bar">
+                      <div class="row">
+                          <div class="col-2">
+                              <i class="fa fa-chevron-left"></i>
+                          </div>
+                          <div class="col-10" id="fs_page_title">
+                              Filters
+                          </div>
+                      </div>
+                  </section>
+
+                  <section class="col-12" id="fs_price_body">
+                      <!-- <div > -->
+                          <span class="heading">
+                              By Price
+                          </span>
+                
+                      <input type="range" min="100" max="5000" value="50" step="50"  
+                       oninput="price(this.value)">
+                            <small id="price"></small>
+                  
+                    </section>
+
+                  <section class="col-12" id="fs_distance_body">
+                      <span class="heading">
+                          By Gender
+                      </span>                            
+                        <div class="contents">
+                          <ul>                        
+                              <li >
+                                  <span>Fmale</span>
+                                  <span class="text-right">
+                                      <input type="radio" class="form-check-input" name="membershipRadios" onclick="filterGender(this.value)" id="membershipRadios1" value="Female" >
+                                  </span>
+                              </li>
+                              <li>
+                                  <span>Male</span>
+                                  <span class="text-right">
+                                      <input type="radio" class="form-check-input" name="membershipRadios" onclick="filterGender(this.value)" id="membershipRadios2" value="Male">
+                          
+                                  </span>
+                              </li>
+                              <li>
+                                  <span>LGBTIQA+</span>
+                                  <span class="text-right">
+                                  <input type="radio" class="form-check-input" name="membershipRadios" onclick="filterGender(this.value)" id="membershipRadios2" value="Other" >
+                                  </span>
+                              </li>
+                          </ul>
+                          </div>
+                  </section>
+
+                  <section class="col-12" id="fs_distance_body">
+                    <span class="heading">
+                        By roomtype
+                    </span>                            
+                      <div class="contents">
+                        <ul>                        
+                            <li >
+                                <span>Sharing</span>
+                                <span class="text-right">
+                                    <input type="radio" class="form-check-input" name="membershipRadios1" onclick="filtertype(this.value)" id="membershipRadios1" value="Sharing" >
+                                </span>
+                            </li>
+                            <li>
+                                <span>Double sharing</span>
+                                <span class="text-right">
+                                    <input type="radio" class="form-check-input" name="membershipRadios1" onclick="filtertype(this.value)" id="membershipRadios2" value="Double sharing">
+                        
+                                </span>
+                            </li>
+                            <li>
+                                <span>2+ Sharing</span>
+                                <span class="text-right">
+                                <input type="radio" class="form-check-input" name="membershipRadios1" onclick="filtertype(this.value)" id="membershipRadios2" value="2+ Sharing" >
+                                </span>
+                            </li>
+                        </ul>
+                        </div>
+                </section>
+
+              </div>
+          </div>
+
+          
+          </section>
+        </div>
+        
+        <div class="col-10">
+          <br>
+          <div class="d-flex justify-content-center">
+              <script
+                type="module"
+                src="https://cdn.jsdelivr.net/npm/@geocodeearth/autocomplete-element/dist/bundle.js">
+              </script>
+                <div class="form-group" style="width: 30%;">    
+                      <input type="hidden" name="place" id="place" value="404" required>
+                          <ge-autocomplete
+                          api_key="ge-409885d2f6333f95"
+                          focus.point.lat="8.5241"
+                          focus.point.lon="76.9366"
+                          placeholder="Type Place or Location"
+                          >                        
+                        </ge-autocomplete>
+
+                </div>
+                <div class="form-group">    
+                    <button style="height: 100%; background-color: #48ff28; border: 0em;" onclick="get_list()"> 
+                        Search
+
+                    </button>
+                  </div>
+
+          </div>
+              <!------ Include the above in your HEAD tag ---------->
+              <div class="pgrid">
+                  <div class="container">
+                    <h3 id="content_head">...</h3>
+                    <div id="loading"></div>
+
+                    <div class="row" id="Cmain">
+                      Search for a Place
+
+                        {% for x in item %}
+                          <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                              <div class="card card-inverse card-info">
+                                  <img class="card-img-top" src="https://picsum.photos/200/150/?random">
+                                  <div class="card-block">
+                                      <figure class="profile">
+                                          <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="">
+                                      </figure>
+                                      <h4 class="card-title mt-3">{{x.acco_name}} </h4>
+                                      <div class="meta card-text">
+                                          <a>Posted by {{x.acco_agent}}</a>
+                                      </div>
+                                      <div class="card-text">
+                                          Price Rs. {{x.acco_price}}
+                                      </div>
+                                  </div>
+                                  <div class="card-footer">
+                                      <small>Last updated {{x.acco_time}}</small>
+                                      <button class="btn btn-info float-right btn-sm">More Details</button>
+                                  </div>
+                              </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                  </div>
+              </div>
+            </section>
+        </div>
+      </div>
+    </section>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-4">
+          <div class="footer-logo">
+
+            <a class="navbar-brand" href="#">AccomodationFinder</a>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Support</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">faq</a></li>
+              <li><a href="#">Editor help</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="copyrights">
+      <div class="container">
+        <p>&copy; Copyrights AccomodationFinder. All rights reserved.</p>
+        <div class="credits">
+          <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=AccomodationFinder
+        -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End  Footer -->
+  <template>
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+      <div class="card card-inverse card-info">
+          <img class="card-img-top"id="im" style="width:200px;height:150px; object-fit:cover;"  onerror="this.src='https://picsum.photos/200/150/?random'" >
+          <div class="card-block">
+              <figure class="profile">
+                <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="" id>
+              </figure>
+              <h4 class="card-title mt-3" id="acco_name">xx</h4>
+              <div class="meta card-text" id="acco_agent">
+                  <a>Posted by ....</a>
+              </div>
+              <div class="card-text" id="acco_price">
+                  Price Rs. ...
+              </div>
+          </div>
+          <div class="card-footer">
+              <small id="acco_time">Last updated...</small>
+              <a id="more" href=""><button class="btn btn-info float-right btn-sm"  >More Details</button></a>
+          </div>
+      </div>
+  </div>
+
+  </template>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <!-- <script src="js/filterSearch.js"></script> -->
+
+<script>
+  const loader = document.querySelector("#loading");
+  var search_text="None"
+  var items;
+
+  var Aprice=0;
+  var Agender=0;
+  var Aroomtype=0;
+// FOR GEOCODE AUTOCOMPLETE
+const el = document.querySelector('ge-autocomplete')
+    
+// 'select' event handler - when a user selects an item from the suggestions
+el.addEventListener('select', (event) => {
+//     document.getElementById("place").value=event.detail;
+//   console.log(event.detail)
+})
+
+// 'change' event handler - on every keystroke as the user types
+el.addEventListener('change', (event) => {
+ search_text=event.detail;
+})
+
+// 'features' event handler - when the GeoJSON features backing the UI change
+el.addEventListener('features', (event) => {
+//   console.log(event.detail)
+})
+
+// 'error' event handler - on error
+el.addEventListener('error', (event) => {
+  console.log(event.detail)
+})
+
+function get_list(){
+  displayLoading()
+  // updateDiv();
+    var user = {
+        "search_text": search_text,
+        'price':Aprice,
+        "gender":Agender,
+        "roomtype":Aroomtype
+    }
+    let options = {
+        method: 'POST',
+        body: JSON.stringify(user)
+    }
+    // Fake api for making post requests
+    let fetchRes = fetch(
+    "/search_pg",
+        options);
+    fetchRes.then(res =>
+        res.json()).then(d => {
+          hideLoading()
+          if(d.status==500){
+            alert("Invalid Request")
+          }
+          else if(d.status==200){
+            document.getElementById("content_head").innerHTML="Showing results near "+search_text;
+            document.getElementById("Cmain").innerHTML="";
+            items=d.item;
+            for (i=0; items.length;i++){
+              showContent(items[i].acco_name,items[i].acco_agent,items[i].acco_time,items[i].acco_price,items[i].acco_id);
+            }
+          }
+        })
+    }
+
+function price(price){
+    Aprice=price
+    get_list();
+    document.getElementById("price").innerHTML="Maximum Price : Rs."+price
+
+}
+
+function filterGender(value){
+    Agender=value;
+    get_list();
+}
+
+function filtertype(value){
+    Aroomtype=value;
+    get_list();
+}
+
+
+
+
+
+function showContent(aname,aagent,atime,aprice,acco_id) {
+  var temp = document.getElementsByTagName("template")[0];
+  var clon = temp.content.cloneNode(true);
+
+  var acco_name=clon.querySelector("#acco_name");
+  var acco_agent=clon.querySelector("#acco_agent");
+  var acco_time=clon.querySelector("#acco_time");
+  var acco_price=clon.querySelector("#acco_price");
+  var more=clon.querySelector("#more");
+  var img=clon.querySelector("#im");
+
+  
+  acco_name.innerHTML = aname;
+  acco_agent.innerHTML ="Posted by"+ aagent;
+  acco_time.innerHTML = "Last Updated"+ atime;
+  acco_price.innerHTML ="₹"+aprice;
+  more.href='/user_accodetails?id='+acco_id;
+  img.src="/acco_images/"+acco_id+"/"+acco_id+".1.png"
+  document.getElementById("Cmain").appendChild(clon);
+}
+
+function next(id){
+  alert(id)
+}
+
+function applyfilter(){
+  var filteredArray;
+  console.log(item2)
+  if (Agender==1 && Aprice==1) {
+  filteredArray = item1.filter(value => item2.includes(value));
+  }
+  else if(Aprice==1 && Agender==0){
+  filteredArray = item1;
+  }
+  else if(Agender==1 && Aprice==0){
+  filteredArray = item2;
+  }
+  else{
+  filteredArray = item;
+  }
+  document.getElementById("content_head").innerHTML="Showing results near "+search_text;
+  document.getElementById("Cmain").innerHTML="";
+  for(i=0;i<filteredArray.length;i++){
+        x=filteredArray[i]
+        showContent(items[x].acco_name,items[x].acco_agent,items[x].acco_time,items[x].acco_price,items[i].acco_id);
+  }
+}
+
+function updateDiv()
+{ 
+    Aprice=0;
+    Agender=0;
+    Aroomtype=0;
+    $( "#filters" ).load(window.location.href + " #filters" );
+    $( "#filters" ).load(window.location.href + " #filters" );
+
+}
+
+
+// showing loading
+function displayLoading() {
+    loader.classList.add("display");
+
+}
+
+// hiding loading 
+function hideLoading() {
+    loader.classList.remove("display");
+}
+
+</script>
+
+
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,36 @@
+{% extends "admin_layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Pending Requests</h4>
+          <p class="card-description">
+          </p>
+          <div class="table-responsive" id="pending">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Accoomodation Name</th>
+                  <th>User</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for x in item %}
+                <tr>
+                  <td>{{x.acco_name}}</td>
+                  <td>{{x.user_name}}</td>
+                  <td>{{x.date}}</td>
+                  <td><label class="badge badge-danger">{{x.status}}</label></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
