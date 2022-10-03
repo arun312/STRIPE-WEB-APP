@@ -15,7 +15,7 @@ import stripe
 # This is your test secret API key.
 stripe.api_key = 'sk_test_51LoYstSCQP9tLIEHALBPJAWNm4usoTNFQSAoujlYHyNQG4CnJ1RZsw8VLs0bhlShtaDn3ZSXzNzGULW255MUfLme00IVHSECqH'
 
-YOUR_DOMAIN = 'http://127.0.0.1:5000'
+YOUR_DOMAIN = 'https://richpanel-flask-app.herokuapp.com/'
 app = Flask(__name__,
             static_url_path='', 
             static_folder='web/static')
