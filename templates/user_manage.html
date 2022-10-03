@@ -73,7 +73,7 @@
     <section class="breadcrumbs">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Number of Active Plans : {{count}}</h2>
+          <h2</h2>
           <ol>
             <li><a href="/user_manage">Manage Plans</a></li>
           </ol>
@@ -89,48 +89,41 @@
               <div class="demo">
                 <div class="container">
                     <div class="row text-center">
-                        <h1 class="heading-title">Choose the right plan for you</h1>
+                        <h1 class="heading-title">Yours Plans</h1>
                     </div>
-                    <div class="row text-center">
-
-                      <div class="switch-field">
-                        <input type="radio" id="radio-one" name="switch-one" value="yes" checked/>
-                        <label for="radio-one">Yearly</label>
-                        <input type="radio" id="radio-two" name="switch-one" value="no" />
-                        <label for="radio-two">Monthly</label>
-                      </div>
-                        </div>
-                        <br>
+              
 
                     <div class="row">
-                      {% for x in item %}
-                        <div class="col-md-3 col-sm-4">
-                            <div class="pricingTable">
-                                <div class="pricingTable-header">
-                                    <span class="heading">
-                                        {{x.name}}
-                                    </span>
-                                </div>
-                                <div class="pricingContent">
-                                    <ul>
-                                        <li><b>{{x.a}} INR</b> Monthly Price</li>
-                                        <li><b>{{x.b}} INR</b>Yearly Price</li>
-                                        <li><b>{{x.c}}</b> Video quality</li>
-                                        <li><b>{{x.d}}p</b>  Resolution</li>
-                                        <li>Devices you can use to watch<br><b>{{x.e}}</b></li>
-                                        <li> Number of active screens at one time<br><b>{{x.f}}</b></li>
-                                  
-                                      </ul>
-                                </div><!-- /  CONTENT BOX-->
-                                
-                             
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-12">
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Plan Name</th>
+                              
+                                  <th scope="col">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for x in item %}
 
-                                <div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-                                   <a onclick="checkout('{{x.fl}}','{{x.name}}','{{x.a}}','{{x.b}}')" class="btn btn-block btn-default">buy now</a>
-                                </div><!-- BUTTON BOX-->
-                            </div>
+                                <tr>
+                                
+                                  <td>{{x.name}}</td>
+                                  <td>
+                                  <form method="post">
+                                      <input type="hidden" name="id" value="{{x.id}}">
+                                      <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i> Cancel</button>
+                                </form>
+                                  </td>
+                                  </tr>
+                            {% endfor%}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
-                        {% endfor %}
+                      </div>
 
                     </div>
                 </div>
@@ -264,21 +257,32 @@
     )
     }
 
-    function checkout(fl,name,a,b){
+    function checkout(fl,name,price,a,b){
       if(document.getElementById('radio-one').checked) {
         ll='Y';
         term='Yearly';
-        price=b;
+        price=a;
       }
-      else{
+      else {
         ll='M';
         term='Monthly';
-        price=a;
+        price=b;
       }
       key=fl+ll
       window.location.href = '/checkout?key='+key+'&name='+name+'&term='+term+'&price='+price;
 
     }
-  </script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const product = urlParams.get('id')
+    if (product==200){
+      Swal.fire(
+        'Thank You!',
+        'User Sucessfully Removed Plan.',
+        'success'
+        
+      )
+    }
+</script>
 </body>
 </html>
